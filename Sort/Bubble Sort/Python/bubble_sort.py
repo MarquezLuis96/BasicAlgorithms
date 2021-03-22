@@ -8,12 +8,24 @@
 # #
 
 
-def increasing_way():
-    pass
+def bubble_sort_increasing_way(numbers):
+    length = numbers.__len__()
+    for i in range(1, length):
+        for j in range(0, length-i):
+            if numbers[j] > numbers[j+1]:
+                aux = numbers[j]
+                numbers[j] = numbers[j+1]
+                numbers[j+1] = aux
 
 
-def decreasing_way():
-    pass
+def bubble_sort_decreasing_way(numbers):
+    length = numbers.__len__()
+    for i in range(1, length):
+        for j in range(0, length-i):
+            if numbers[j] < numbers[j+1]:
+                aux = numbers[j]
+                numbers[j] = numbers[j+1]
+                numbers[j+1] = aux
 
 
 def add_to_list(numbers):
@@ -59,8 +71,37 @@ def pause():
 
 def run():
     numbers = []
-    add_to_list(numbers)
-    print_list(numbers)
+    option = True
+    print("Welcome to the program...")
+    while option:
+        print("Press %d to add a number to the list" % 1)
+        print("Press %d to print the list" % 2)
+        print("Press %d to apply the Bubble Sort in increasing way" % 3)
+        print("Press %d to apply the Bubble Sort in decreasing way" % 4)
+        print("Press %d to exit" % 0)
+        opc = int(input("Type your option here:"))
+        if opc == 0:
+            print("Bye!")
+            exit()
+        elif opc == 1:
+            add_to_list(numbers)
+            print("The numbers were added to the list...")
+        elif opc == 2:
+            print("The numbers added to the list are:")
+            print_list(numbers)
+        elif opc == 3:
+            print("The list before the sort...")
+            print_list(numbers)
+            bubble_sort_increasing_way(numbers)
+            print("The list after the sort...")
+            print_list(numbers)
+        elif opc == 4:
+            print("The list before the sort...")
+            print_list(numbers)
+            bubble_sort_decreasing_way(numbers)
+            print("The list after the sort...")
+            print_list(numbers)
+
     pause()
 
 
